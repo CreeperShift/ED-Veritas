@@ -10,9 +10,9 @@ import java.util.List;
  * ED-Veritas
  * Created by Max on 5/23/2017.
  */
-public final class Reader {
+public final class FileUtil {
 
-    private Reader() {
+    private FileUtil() {
     }
 
 
@@ -28,6 +28,16 @@ public final class Reader {
 
 
         return null;
+    }
+
+    public static void writeLines(File file, List<String> list) {
+
+        try {
+            Files.write(Paths.get(file.getAbsolutePath()), list);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
