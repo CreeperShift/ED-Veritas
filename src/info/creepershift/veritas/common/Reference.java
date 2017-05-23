@@ -11,4 +11,6 @@ public class Reference {
     public static final boolean dev = true;
     public static final boolean verbose = true;
 
+    public static final String journalDir = System.getProperty("user.home") + "\\Saved Games\\Frontier Developments\\Elite Dangerous\\";
+
 }

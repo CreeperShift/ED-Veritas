@@ -1,8 +1,6 @@
 package info.creepershift.veritas.common;
 
-import info.creepershift.veritas.common.storage.DataStorage;
-
-import java.io.IOException;
+import info.creepershift.veritas.common.parser.ParserThread;
 
 /**
  * ED-Veritas
@@ -10,15 +8,11 @@ import java.io.IOException;
  */
 public class Veritas {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-
-        try {
-            new DataStorage("test");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        new ParserThread();
 
     }
+
 
 }

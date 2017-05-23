@@ -16,7 +16,7 @@ public class DataStorage {
     private final String baseDir = System.getProperty("user.home") + "\\AppData\\Roaming\\Veritas";
     private File dataFile;
     private String currentJournal;
-    private String currentTime;
+    private int currentLine;
     private static DataStorage INSTANCE;
 
     private DataStorage() {
@@ -36,7 +36,7 @@ public class DataStorage {
     private void writeFile() {
         ArrayList<String> list = new ArrayList<>();
         list.add(currentJournal);
-        list.add(currentTime);
+        list.add(currentLine+"");
         FileUtil.writeLines(dataFile, list);
     }
 
@@ -45,7 +45,7 @@ public class DataStorage {
 
         if (list != null && list.size() == 2) {
             currentJournal = list.get(0);
-            currentTime = list.get(1);
+            currentLine = Integer.parseInt(list.get(1));
         }
 
     }
@@ -55,8 +55,8 @@ public class DataStorage {
         return currentJournal;
     }
 
-    public String getCurrentTime() {
-        return currentTime;
+    public int getCurrentLine() {
+        return currentLine;
     }
 
     public void setCurrentJournal(String currentJournal) {
@@ -64,13 +64,13 @@ public class DataStorage {
         writeFile();
     }
 
-    public void setCurrentTime(String currentTime) {
-        this.currentTime = currentTime;
+    public void setCurrentLine(int currentLine) {
+        this.currentLine = currentLine;
         writeFile();
     }
 
-    public void updateData(String currentJournal, String currentTime){
-        this.currentTime = currentTime;
+    public void updateData(String currentJournal, int currentLine){
+        this.currentLine = currentLine;
         this.currentJournal = currentJournal;
         writeFile();
     }
